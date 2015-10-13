@@ -1,0 +1,24 @@
+{% extends 'layout.twig' %}
+{% block body %}
+<form action="{{ path('update') }}" method="POST">
+<label>FirstName</label>
+<input type="text" name ="fname" value="{{userData.first_name}}">
+
+<label>LastName</label>
+<input type="text" name ="lname" value="{{userData.last_name}}">
+
+<label>Email</label>
+<input type="text" name ="email" value="{{userData.email}}">
+
+<label>Password</label>
+<input type="text" name ="password" value="{{userData.password}}">
+
+<label>Address</label>
+<input type="text" name ="address" value="{{userData.address}}">
+
+<input type="submit" value="submit">
+
+</form>
+{% endblock %}
+
+

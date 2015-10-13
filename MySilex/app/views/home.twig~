@@ -1,0 +1,54 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+ <div class="page-header">
+        <h1>UserData</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                 <th>Addess</th>
+                 <th>Status</th>
+                 <th>Delete</th>
+              </tr>
+            </thead>
+             {% for user in users%}
+            <tbody>
+           
+              <tr>
+               <td>{{user.id}}</td>
+                <td>{{user.first_name}}</td>
+                <td>{{user.last_name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.address}}</td>
+                {% if user.status == 1%}
+                <td>Enabled</td>
+                {% else %}
+                  <td>Disabled</td>
+                  {% endif %}
+                   <td><a href="{{ path('delete',{id:user.id}) }}">Delete</a>||<a href="{{ path('delete',{id:user.id}) }}">Update</a></td>
+              </tr>
+              
+            </tbody>
+            
+            {% endfor %}
+          </table>
+        </div>
+
+      </div>
+      <style>
+      .col-md-6 {
+width: 100% !important;
+}
+
+      
+      </style>
+      
+{% endblock %}
